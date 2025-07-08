@@ -23,10 +23,18 @@ public class CalculatorFirst {
         } else if (charAt.equals("*")) {
             num3 = num1 * num2;
         }  else if (charAt.equals("/")) {
-            num3 = num1 / num2;
-        }  else {
+            if(num1==0) {
+                System.out.println("나눗셈 연산에서 0이 입력될 수 없습니다.");
+            } else if(num2==0) {
+                System.out.println("나눗셈 연산에서 0이 입력될 수 없습니다.");
+            }else {
+                num3 = num1 / num2;
+            }
+        }
+         else {
             System.out.println("정확한 사칙연산 기호를 입력하세요.");
         }
+
         System.out.println("결과:"+ num3);
 
     }
