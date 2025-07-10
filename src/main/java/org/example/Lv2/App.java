@@ -1,6 +1,7 @@
 package org.example.Lv2;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class App {
     public static void main(String[] args) {
@@ -8,6 +9,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+            try {
             System.out.print("첫 번째 숫자를 입력하세요:");
             int num1 = sc.nextInt();
 
@@ -17,15 +19,18 @@ public class App {
             System.out.print("두 번째 숫자를 입력하세요:");
             int num2 = sc.nextInt();
 
-            try {
                 Integer result = cal1.calculate(num1, num2, cal);
                 if (result != null) {
                     System.out.println("결과: " + result);
                     System.out.println("지금까지 저장된 결과들: " + cal1.getResults());
                 }
-            } catch (Exception e) {
-                System.out.println("오류 발생: " + e.getMessage());
-            }
+            }       catch (InputMismatchException e) {
+                    System.out.println("숫자가 아닌 값을 입력하셨습니다. 다시 시도해주세요.");
+                    sc.nextLine();
+                    continue;
+                    } catch (Exception e) {
+                        System.out.println("오류 발생: " + e.getMessage());
+                    }
             System.out.println("계속하시겠습니까? (exit 입력 시 종료)");
             String next = sc.next();
             if (next.equalsIgnoreCase("exit")) break;
