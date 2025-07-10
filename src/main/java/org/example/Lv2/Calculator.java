@@ -6,6 +6,10 @@ import java.util.List;
 public class Calculator {
         private List<Integer> result = new ArrayList<Integer>();
 
+    public void setResult(List<Integer> result) {
+        this.result = result;
+    }
+
     public Integer calculate(int num1, int num2, String cal) throws Exception {
         int num3 = 0;
 

@@ -1,5 +1,6 @@
 package org.example.Lv2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -23,6 +24,12 @@ public class App {
                 if (result != null) {
                     System.out.println("결과: " + result);
                     System.out.println("지금까지 저장된 결과들: " + cal1.getResults());
+                }
+                System.out.println("저장된 값을 초기화하고 싶다면 (yes를 입력하세요.)");
+                String clear = sc.next();
+                if (clear.equalsIgnoreCase("yes")) {
+                    cal1.setResult(new ArrayList<>());
+
                 }
             }       catch (InputMismatchException e) {
                     System.out.println("숫자가 아닌 값을 입력하셨습니다. 다시 시도해주세요.");
