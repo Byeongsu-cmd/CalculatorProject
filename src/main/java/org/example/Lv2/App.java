@@ -6,6 +6,7 @@ public class App {
     public static void main(String[] args) {
         Calculator cal1 = new Calculator();
         Scanner sc = new Scanner(System.in);
+
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요:");
             int num1 = sc.nextInt();
@@ -23,12 +24,11 @@ public class App {
                     System.out.println("지금까지 저장된 결과들: " + cal1.getResults());
                 }
             } catch (Exception e) {
-                System.out.println("오류: " + e.getMessage());
+                System.out.println("오류 발생: " + e.getMessage());
             }
-            System.out.println("더 계산하시겠습니까? (exit 입력시 종료됩니다.)");
-            if (sc.next().equals("exit")) {
-                break;
-            }
+            System.out.println("계속하시겠습니까? (exit 입력 시 종료)");
+            String next = sc.next();
+            if (next.equalsIgnoreCase("exit")) break;
         }
 
     }
