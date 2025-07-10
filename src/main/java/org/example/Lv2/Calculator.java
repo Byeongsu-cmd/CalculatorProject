@@ -9,6 +9,16 @@ public class Calculator {
     public void setResult(List<Integer> result) {
         this.result = result;
     }
+    public List<Integer> getResults() {
+        return result;
+    }
+    public void removeFirst(){
+        if(!result.isEmpty()){
+            result.remove(0);
+        } else{
+            System.out.println("저장된 값이 없습니다.");
+        }
+    }
 
     public Integer calculate(int num1, int num2, String cal) throws Exception {
         int num3 = 0;
@@ -35,8 +45,4 @@ public class Calculator {
             result.add(num3);
             return num3;
         }
-            public List<Integer> getResults() {
-            return result;
-        }
-
     }
