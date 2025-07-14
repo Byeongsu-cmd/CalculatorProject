@@ -24,7 +24,7 @@ public enum OperatorType {
         }
     };
 
-    private String symbol;
+    private final String symbol;
     OperatorType(String symbol) {
         this.symbol = symbol;
     }
@@ -38,5 +38,4 @@ public enum OperatorType {
         }
             throw new IllegalArgumentException("연산자를 다시 입력해주세요.");
     }
-
 }

@@ -1,11 +1,14 @@
 package org.example.Lv3;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArithmeticCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        List<Integer> resultList = new ArrayList<>();
 
         while (true) {
             try {
@@ -19,16 +22,21 @@ public class ArithmeticCalculator {
                 int num2 = sc.nextInt();
 
                 OperatorType op = OperatorType.newSymbol(symbol);
-
                 int result = op.apply(num1,num2);
-                System.out.println(result);
+
+                resultList.add(result);
+                System.out.println("결과:"+result);
+
+                System.out.println("저장된 값"+resultList);
+
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력하세요.");
                 sc.nextLine();
                 continue;
             } catch (Exception e) {
                 System.out.println("오류 발생: " + e.getMessage());
-            }   System.out.println("계속하시겠습니까?(exit 입력 시 종료)");
+            }
+                System.out.println("계속하시겠습니까?(exit 입력 시 종료)");
                 String answer = sc.next();
                 if (answer.equalsIgnoreCase("exit")) break;
         }
