@@ -1,33 +1,31 @@
 package org.example.Lv3;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class ArithmeticCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Integer> resultList = new ArrayList<>();
+        Calculate<Double> resultList = new Calculate<>();
 
         while (true) {
             try {
                 System.out.print("첫번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
+                double num1 = sc.nextDouble();
 
                 System.out.print("연산 기호를 입력하세요(+,-,*,/): ");
                 String symbol = sc.next();
 
                 System.out.print("두번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
+                double num2 = sc.nextDouble();
 
                 OperatorType op = OperatorType.newSymbol(symbol);
-                int result = op.apply(num1,num2);
+                double result = op.apply(num1,num2);
 
-                resultList.add(result);
+                resultList.addResult(result);
                 System.out.println("결과:"+result);
 
-                System.out.println("저장된 값"+resultList);
+                System.out.println("저장된 값"+resultList.getResultList());
 
             } catch (InputMismatchException e) {
                 System.out.println("숫자를 입력하세요.");
